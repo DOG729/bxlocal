@@ -16,5 +16,7 @@
     "extra": {
         "branch-alias": {
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
