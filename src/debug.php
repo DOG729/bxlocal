@@ -1,5 +1,5 @@
 <?
-namespace local\dog729\bxlocal;
+namespace local\module;
 
 class Debug {
 
