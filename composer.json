@@ -1,0 +1,20 @@
+{
+    "name": "DOG729/bxlocal",
+    "type": "library",
+    "description": "Bitrix local.",
+    "keywords": ["modules","CMS", "Bitrix"],
+    "homepage": "https://dog729.ru",
+    "license": "MIT",
+    "authors": [
+        {"name": "DOG729", "email": "admin@dog729.ru"}
+    ],
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "autoload": {
+    },
+    "extra": {
+        "branch-alias": {
+        }
+    }
+}
