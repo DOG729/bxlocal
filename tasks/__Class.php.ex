@@ -1,7 +1,9 @@
 <?
 namespace local\app;
 
-class =NAME= {
+use local\module\LocalApp;
+
+class =NAME= extends LocalApp {
 
     private $option = array();
 
