@@ -53,6 +53,8 @@ class BxLocal {
         return $this->status;
     }
 
+   
+
 }
 
 ?>

@@ -16,7 +16,8 @@ class Console extends BxLocal {
     function commands(){
         return array(
             'set:app' => '[name] - Created app class',
-            'delete:app' => '[name] - Delete app class'
+            'delete:app' => '[name] - Delete app class',
+            'create:config' => '[name] - Created config'
         );
     }
 
@@ -35,6 +36,13 @@ class Console extends BxLocal {
                     return self::deleteApp($command[2]);
                 }else{
                     return  "\x1b[0;41m error no name \x1b[0m";
+                }
+                break;
+            case "create:config":
+                if(!empty($command[2])){
+                    return self::createConfig($command[2]);
+                }else{
+                    return self::createConfig(false);
                 }
                 break;
         }
@@ -96,6 +104,33 @@ class Console extends BxLocal {
             return 'Error';
         }
         
+    }
+    public static function createConfig($name=false){
+
+        if (!file_exists(self::$_dir.'\\config')) {
+        mkdir(self::$_dir.'\\config', 0777);
+        $newfile = self::$_dir."\config\\app.php";
+        $file = self::$_dir."\\vendor\\dog729\\bxlocal\\tasks\\appconfig.php.ex";
+            if (copy($file, $newfile)) {
+                BxLocal::EditFile($newfile,'=TOKEN=',md5(rand(11111,99999)));
+                if($name){
+                    $_mes = "Install config app \n";
+                }else{
+                    return 'Install config app';
+                }
+            }
+        }
+        if($name){
+        $newfile = self::$_dir."\config\\".$name.".php";
+        $file = self::$_dir."\\vendor\\dog729\\bxlocal\\tasks\\__Config.php.ex";
+            if (copy($file, $newfile)) {
+                BxLocal::EditFile($newfile,'=NAME=',$name);
+                return $_mes.'Success config created';
+            }
+        }else{
+            return 'no name config';
+        }
+
     }
 
 
