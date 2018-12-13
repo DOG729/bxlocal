@@ -15,7 +15,7 @@ class LocalApp {
 
     }
 
-    function config($code,$params){
+    function config($code,$params=false){
 
         global $GLOBALS;
 
