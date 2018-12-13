@@ -82,6 +82,12 @@ class Console extends BxLocal {
         
     }
 
+    function install()
+    {
+        self::createConfig(false);
+        return 'Install Local Bitrix';
+    }
+
     //Console Function
     public static function setApp($name){
         $newfile = self::$_dir."\app\\".$name."Class.php";
@@ -106,7 +112,7 @@ class Console extends BxLocal {
         
     }
     public static function createConfig($name=false){
-
+        $_mes = '';
         if (!file_exists(self::$_dir.'\\config')) {
         mkdir(self::$_dir.'\\config', 0777);
         $newfile = self::$_dir."\config\\app.php";

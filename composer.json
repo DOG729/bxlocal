@@ -1,9 +1,8 @@
 {
     "name": "dog729/bxlocal",
-    "type": "library",
-    "description": "Bitrix local.",
-    "keywords": ["modules","CMS", "Bitrix"],
-    "homepage": "https://dog729.ru",
+    "description": "Resource for creating a local namespace in the Bitrix management system.",
+    "keywords": ["modules","CMS","Bitrix"],
+    "homepage": "https://dog729.ru/bitrix",
     "license": "MIT",
     "authors": [
         {"name": "DOG729", "email": "admin@dog729.ru"}
@@ -17,6 +16,14 @@
     "extra": {
         "branch-alias": {
         }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "local\\module\\Console::install"
+        ],
+        "post-create-project-cmd": [],
+        "post-autoload-dump": [],
+        "post-update-cmd": []
     },
     "minimum-stability": "dev",
     "prefer-stable": true
