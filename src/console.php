@@ -88,6 +88,11 @@ class Console extends BxLocal {
         return 'Install Local Bitrix';
     }
 
+    function update()
+    {
+        return 'Update Local Bitrix';
+    }
+
     //Console Function
     public static function setApp($name){
         $newfile = self::$_dir."\app\\".$name."Class.php";

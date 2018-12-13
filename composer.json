@@ -23,7 +23,9 @@
         ],
         "post-create-project-cmd": [],
         "post-autoload-dump": [],
-        "post-update-cmd": []
+        "post-update-cmd": [
+            "local\\module\\Console::update"
+        ]
     },
     "minimum-stability": "dev",
     "prefer-stable": true
