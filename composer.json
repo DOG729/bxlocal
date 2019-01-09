@@ -8,7 +8,7 @@
         {"name": "DOG729", "email": "admin@dog729.ru"}
     ],
     "require": {
-        "php": ">=7.0.0"
+        "php": ">=7.1.0"
     },
     "autoload": {
         "psr-4": {"local\\module\\": "src/"}

@@ -26,7 +26,11 @@ class Console extends BxLocal {
         switch ($command[1]) {
             case "set:app":
                 if(!empty($command[2])){
-                    return self::setApp($command[2]);
+                    $command3 = false;
+                    if(!empty($command[3])){
+                        $command3 = $command[3];
+                    }
+                    return self::setApp($command[2],$command3);
                 }else{
                     return "\x1b[0;41m error no name \x1b[0m";
                 }
@@ -94,11 +98,19 @@ class Console extends BxLocal {
     }
 
     //Console Function
-    public static function setApp($name){
-        $newfile = self::$_dir."\app\\".$name."Class.php";
+    public static function setApp($name,$command=false){
+
+        //sub command
+        if($command == '-n' || $command == '-noclass'){
+            $subname = '';
+        }else{
+            $subname = 'Class';
+        }
+        //l
+        $newfile = self::$_dir."\app\\$name"."$subname.php";
         $file = self::$_dir."\\vendor\\dog729\\bxlocal\\tasks\\__Class.php.ex";
         if (copy($file, $newfile)) {
-            BxLocal::EditFile($newfile,'=NAME=',$name);
+            BxLocal::EditFile($newfile,'=NAME=',$name.$subname);
             return 'Success file created';
         }else{
             return 'Could not create';

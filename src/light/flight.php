@@ -28,16 +28,18 @@ class Request
     }
 
     public function encode($text,$ext=false,$user=false){
+        $CSCoder = new LocalApp;
         $data = [
             'data' => $text,
             'ext' => $ext ? $ext : (time() + 86400),
         ];
-        return LocalApp::_encode($data);
+        return $CSCoder->_encode($data);
     }
 
     public function decode($code)
     {
-        $data = LocalApp::_decode($code);
+        $CSCoder = new LocalApp;
+        $data = $CSCoder->_decode($code);
 
         if($data->ext > time()){
             return $data->data;
